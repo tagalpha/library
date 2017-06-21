@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <layout>
-    <!-- SLIDER SLIDES -->
+    <!-- LIBRARY EDITOR -->
     <adminhtml_slider_slide_index>
         <reference name="content">
             <block type="learning_slider/adminhtml_slide" name="learning_slider_adminhtml_slide"></block>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <learning_library translate="title" module="learning_library">
+            <title>Library</title>
+            <sort_order>70</sort_order>
+            <children>
+                <library_editor translate="title" module="learning_library">
+                    <title>Manage editors</title>
+                    <action>adminhtml/library_editor</action>
+                    <sort_order>0</sort_order>
+                </library_editor>
+            </children>
+        </learning_library>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <learning_library>
+                        <children>
+                            <library_editor translate="title" module="learning_library">
+                                <title>Manage editors</title>
+                                <sort_order>0</sort_order>
+                            </library_editor>
+                        </children>
+                    </learning_library>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

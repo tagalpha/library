@@ -669,7 +669,7 @@ a.ais-current-refined-values--link:hover
  * Search Box
 */
 #algolia-searchbox{
-  margin: 20px 0;
+  margin: -4px 0;
   position: relative;
 }
 

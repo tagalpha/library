@@ -1,19 +1,16 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
     <learning_library_index_index>
-        <reference name="head">
-            <action method="addJs"><script>learning/jquery/jquery.bxlibrary.js</script></action>
-            <action method="addItem">
-                <type>skin_js</type>
-                <name>learning/js/scripts.js</name>
-            </action>
-            <action method="addItem">
-                <type>skin_css</type>
-                <name>learning/css/style.css</name>
-            </action>
-        </reference>
         <reference name="content">
             <block type="learning_library/library"  name="learning_library.library" template="learning/library.phtml" />
         </reference>
     </learning_library_index_index>
+    <learning_library_index_details>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="learning_library/library"  name="learning_library.library" template="learning/editor_details.phtml" />
+        </reference>
+    </learning_library_index_details>
 </layout>

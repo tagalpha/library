@@ -69,6 +69,10 @@ class Learning_Library_Adminhtml_Library_EditorController extends Mage_Adminhtml
 
             try {
                 $editor->addData($data);
+                $products = $this->getRequest()->getPost('products', -1);
+                if ($products != -1) {
+                    $editor->setProductsData(Mage::helper('adminhtml/js')->decodeGridSerializedInput($products));
+                }
                 $editor->save();
 
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('learning_library')->__('The editor has been saved.'));
@@ -149,5 +153,29 @@ class Learning_Library_Adminhtml_Library_EditorController extends Mage_Adminhtml
         }
 
         return $this->_redirect('*/*/index');
+    }
+
+    public function productsAction(){
+        $this->_initEditor(); //if you don't have such a method then replace it with something that will get you the entity you are editing.
+        $this->loadLayout();
+        $this->getLayout()->getBlock('editor.edit.tab.product')
+            ->setEditorProducts($this->getRequest()->getPost('editor_products', null));
+        $this->renderLayout();
+    }
+    public function productsgridAction(){
+        $this->_initEditor();
+        $this->loadLayout();
+        $this->getLayout()->getBlock('editor.edit.tab.product')
+            ->setEditorProducts($this->getRequest()->getPost('editor_products', null));
+        $this->renderLayout();
+    }
+
+    protected function _initEditor()
+    {
+        $id = $this->getRequest()->getParam('id');
+        $editor = Mage::getModel('learning_library/editor')->load(($id));
+        if ($editor->getId() || $id == 0) {
+            Mage::register('current_editor', $editor);
+        }
     }
 }

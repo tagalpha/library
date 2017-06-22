@@ -1,13 +1,14 @@
-<?php $editors = $this->getSlides(); ?>
-<?php $helper = Mage::helper('learning_library'); ?>
-<ul class="bxlibrary">
+<?php
 
-    <?php foreach ($editors as $editor): ?>
-        <?php if ($editor->getImageUrl() != null) { ?>
-        <li>
-            <img src="<?php echo $helper->getImageUrl($editor->getImageUrl()); ?>" title="<?php echo $editor->getName(); ?>">
-        </li>
-        <?php } ?>
-    <?php endforeach; ?>
+$editors = $this->getEditors();
+?>
 
+<ul class="editor-list">
+<?php
+foreach ($editors as $editor) {
+    echo "<li class='editor-item'>";
+    echo "<a href='".Mage::getUrl('learning_library/index/details', ['slug' => $editor->getSlug()])."'>" . $editor->getName() . "</a>";
+    echo "</li>";
+}
+?>
 </ul>

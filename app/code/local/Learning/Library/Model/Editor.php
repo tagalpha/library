@@ -43,4 +43,11 @@ class Learning_Library_Model_Editor extends Mage_Core_Model_Abstract
         $collection = $this->getProductInstance()->getProductCollection($this);
         return $collection;
     }
+
+    public function loadBySlug($slug){
+        $resource = $this->_getResource();
+        $resource->loadBySlug($slug, $this);
+
+        return $this;
+    }
 }

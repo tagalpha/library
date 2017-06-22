@@ -34,4 +34,19 @@ class Learning_Library_Model_Resource_Editor extends Mage_Core_Model_Resource_Db
             throw new Exception($slug . ' already exist');
         }
     }
+
+    public function loadBySlug($slug,Mage_Core_Model_Abstract $object)
+    {
+        $reader = $this->_getReadAdapter();
+        $select = $reader->select()->from($this->getMainTable())
+            ->where('slug = ?',$slug)->where('entity_id', $object->getId());
+
+        $result= $reader->fetchRow($select);
+
+        if($result){
+            $object->setData($result);
+        }
+
+        return $this;
+    }
 }

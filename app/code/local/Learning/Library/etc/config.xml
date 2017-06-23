@@ -71,6 +71,16 @@
                 </learning_library>
             </updates>
         </layout>
+        <events>
+            <page_block_html_topmenu_gethtml_before>
+                <observers>
+                    <learning_library>
+                        <class>learning_library/observer</class>
+                        <method>addToTopmenu</method>
+                    </learning_library>
+                </observers>
+            </page_block_html_topmenu_gethtml_before>
+        </events>
     </frontend>
     <admin>
         <routers>

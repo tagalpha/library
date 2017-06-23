@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
     <learning_library_index_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
         <reference name="content">
             <block type="learning_library/library"  name="learning_library.library" template="learning/library.phtml" />
         </reference>
